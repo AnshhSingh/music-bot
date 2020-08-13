@@ -10,7 +10,7 @@ app.get("/", function(request, response) {
 });
 
 // req
-var listener = app.listen(process.env.PORT || 3000, function() {
+var listener = app.listen(process.env.PORT || 8080, function() {
   console.log("Your app is listening on port " + listener.address().port);
 });
 setInterval(() => {
