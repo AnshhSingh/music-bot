@@ -7,10 +7,10 @@ require("./server.js");
 const bot = new Client({
     disableMentions: "all"
 });
+
 const PREFIX = process.env.PREFIX;
 const youtube = new YouTube(process.env.YTAPI_KEY);
 const queue = new Map();
-bot.on('ready', () => {bot.user.setPresence({ game: { name: 'ok', type: 0 } });
 
 bot.on("warn", console.warn);
 bot.on("error", console.error);
@@ -29,12 +29,7 @@ bot.on("message", async (message) => { // eslint-disable-line
 
     let command = message.content.toLowerCase().split(" ")[0];
     command = command.slice(PREFIX.length);
-    If (command === "stats") {
-  message.channel.send("Bot is running! ✅\n Bot is running with "+bot.users.size+
- " users, in  "+bot.channels.size+" channels of "+bot.guilds.size+
- " guilds! 👍");
- break;
-}
+
     if (command === "help" || command === "cmd") {
         const helpembed = new MessageEmbed()
             .setColor("BLUE")
