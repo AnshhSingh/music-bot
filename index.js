@@ -38,7 +38,7 @@ bot.on("message", async (message) => { // eslint-disable-line
 __**Command list**__
 > \`play\` > **\`play [title/url]\`**
 > \`search\` > **\`search [title]\`**
-> \`skip\`, \`stop\`,  \`pause\`, \`resume\`
+> \`skip\`, \`leave\`,  \`pause\`, \`resume\`
 > \`nowplaying\`, \`queue\`, \`volume\``)
             .setFooter("test");
         message.channel.send(helpembed);
