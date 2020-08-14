@@ -1,7 +1,7 @@
 {
-  "name": "music-bot-example",
+  "name": "music-bot",
   "version": "1.1.0",
-  "description": "A dedicated music bot example project for Zhycorp Development made by iCrawl",
+  "description": "Inspired from many other bots(discord) ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
