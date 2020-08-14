@@ -10,7 +10,7 @@ const bot = new Client({
 
 bot.on('ready', () => {
         setInterval(() => {
-          targetGuild = bot.guilds.get('GUILD ID HERE')
+          targetGuild = client.guilds.cache.get('GUILD ID HERE')
           if(targetGuild) {
               Bot.user.setPresence({ game: { name: targetGuild.memberCount + ' people verifying!', type: 'WATCHING' }, status: 'online'  })
                     .then(console.log)
