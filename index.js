@@ -44,7 +44,7 @@ __**Command list**__
         message.channel.send(helpembed);
     }
     if(command==="botstats"){
-message.channel.send("Bot is running! ✅\n Bot is running with "+client.users.size+
+    message.channel.send("Bot is running! ✅\n Bot is running with "+client.users.size+
  " users, in  "+bot.channels.size+" channels of "+client.guilds.size+
  " guilds! 👍");
  break;
