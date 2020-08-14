@@ -4,6 +4,23 @@ const ytdl = require("ytdl-core");
 require("dotenv").config();
 require("./server.js");
 
+static void UpdatePresence()
+{
+    DiscordRichPresence discordPresence;
+    memset(&discordPresence, 0, sizeof(discordPresence));
+    discordPresence.state = "..";
+    discordPresence.details = "Playing song in many servers";
+    discordPresence.startTimestamp = 1507665886;
+    discordPresence.endTimestamp = 1507665886;
+    discordPresence.largeImageText = "Numbani";
+    discordPresence.smallImageText = "Rogue - Level 100";
+    discordPresence.partyId = "ae488379-351d-4a4f-ad32-2b9b01c91657";
+    discordPresence.partySize = 0;
+    discordPresence.partyMax = 0;
+    discordPresence.joinSecret = "MTI4NzM0OjFpMmhuZToxMjMxMjM= ";
+    Discord_UpdatePresence(&discordPresence);
+}
+
 const bot = new Client({
     disableMentions: "all"
 });
@@ -17,7 +34,7 @@ bot.on("error", console.error);
 bot.on("ready", () => console.log(`[READY] ${bot.user.tag} has been successfully booted up!`));
 bot.on("shardDisconnect", (event, id) => console.log(`[SHARD] Shard ${id} disconnected (${event.code}) ${event}, trying to reconnect...`));
 bot.on("shardReconnecting", (id) => console.log(`[SHARD] Shard ${id} reconnecting...`));
-client.user.setGame("music")
+client
 bot.on("message", async (message) => { // eslint-disable-line
     if (message.author.bot) return;
     if (!message.content.startsWith(PREFIX)) return;
