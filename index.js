@@ -138,7 +138,7 @@ __**Command list**__
         serverQueue.connection.dispatcher.end("[runCmd] Skip command has been used");
         return message.channel.send("⏭️  **|**  I skip this song for you");
 
-    } else if (command === "stop") {
+    } else if (command === "leave" || command=== "dc") {
         if (!message.member.voice.channel) return message.channel.send("I'm sorry but you need to be in a voice channel to play music!");
         if (!serverQueue) return message.channel.send("There is nothing playing that I could stop for you");
         serverQueue.songs = [];
