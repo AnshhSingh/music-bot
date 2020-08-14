@@ -32,7 +32,7 @@ bot.on("message", async (message) => { // eslint-disable-line
 
     if (command === "help" || command === "cmd") {
         const helpembed = new MessageEmbed()
-            .setColor("BLUE")
+            .setColor("GREEN")
             .setAuthor(bot.user.tag, bot.user.displayAvatarURL())
             .setDescription(`
 __**Command list**__
@@ -40,7 +40,7 @@ __**Command list**__
 > \`search\` > **\`search [title]\`**
 > \`skip\`, \`leave\`,  \`pause\`, \`resume\`
 > \`nowplaying\`, \`queue\`, \`volume\``)
-            .setFooter("test");
+            .setFooter("Do not put space between p+<command>");
         message.channel.send(helpembed);
     }
     if (command === "play" || command === "p") {
