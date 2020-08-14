@@ -8,6 +8,18 @@ const bot = new Client({
     disableMentions: "all"
 });
 
+bot.on('ready', () => {
+        setInterval(() => {
+          targetGuild = client.guilds.get('GUILD ID HERE')
+          if(targetGuild) {
+              client.user.setPresence({ game: { name: targetGuild.memberCount + ' people verifying!', type: 'WATCHING' }, status: 'online'  })
+                    .then(console.log)
+                    .catch(console.error);
+          }
+    }, 1000 * 60 * 5);
+
+});
+
 const PREFIX = process.env.PREFIX;
 const youtube = new YouTube(process.env.YTAPI_KEY);
 const queue = new Map();
