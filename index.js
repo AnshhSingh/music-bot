@@ -10,9 +10,9 @@ const bot = new Client({
 
 bot.on('ready', () => {
         setInterval(() => {
-          targetGuild = client.guilds.get('GUILD ID HERE')
+          targetGuild = bot.guilds.get('GUILD ID HERE')
           if(targetGuild) {
-              client.user.setPresence({ game: { name: targetGuild.memberCount + ' people verifying!', type: 'WATCHING' }, status: 'online'  })
+              Bot.user.setPresence({ game: { name: targetGuild.memberCount + ' people verifying!', type: 'WATCHING' }, status: 'online'  })
                     .then(console.log)
                     .catch(console.error);
           }
