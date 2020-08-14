@@ -10,8 +10,7 @@ const bot = new Client({
 const PREFIX = process.env.PREFIX;
 const youtube = new YouTube(process.env.YTAPI_KEY);
 const queue = new Map();
-
-bot.user.setPresence({ game: { name: 'ok', type: 0 } });
+bot.on('ready', () => {bot.user.setPresence({ game: { name: 'ok', type: 0 } });
 
 bot.on("warn", console.warn);
 bot.on("error", console.error);
