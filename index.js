@@ -29,7 +29,12 @@ bot.on("message", async (message) => { // eslint-disable-line
 
     let command = message.content.toLowerCase().split(" ")[0];
     command = command.slice(PREFIX.length);
-
+    If (command === "stats") {
+  message.channel.send("Bot is running! ✅\n Bot is running with "+bot.users.size+
+ " users, in  "+bot.channels.size+" channels of "+bot.guilds.size+
+ " guilds! 👍");
+ break;
+}
     if (command === "help" || command === "cmd") {
         const helpembed = new MessageEmbed()
             .setColor("BLUE")
