@@ -14,10 +14,25 @@ const queue = new Map();
 
 bot.on("warn", console.warn);
 bot.on("error", console.error);
-bot.on("ready", () => console.log(`[READY] ${bot.user.tag} has been successfully booted up!`));
 bot.on("shardDisconnect", (event, id) => console.log(`[SHARD] Shard ${id} disconnected (${event.code}) ${event}, trying to reconnect...`));
 bot.on("shardReconnecting", (id) => console.log(`[SHARD] Shard ${id} reconnecting...`));
+const Discord = require('discord.js')
+const client = new Discord.Client()
 
+bot.on('ready', () => {
+  console.log('The client is ready!')
+
+  command(client, ['ping', 'test'], (message) => {
+    message.channel.send('Pong!')
+  })
+
+  command(client, 'servers', (message) => {
+    client.guilds.cache.forEach((guild) => {
+      message.channel.send(
+        `${guild.name} has a total of ${guild.memberCount} members`
+      )
+    })
+  })
 bot.on("message", async (message) => { // eslint-disable-line
     if (message.author.bot) return;
     if (!message.content.startsWith(PREFIX)) return;
