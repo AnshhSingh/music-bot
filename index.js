@@ -21,9 +21,7 @@ const client = new Discord.Client()
 bot.on("message", async (message) => { // eslint-disable-line
     if (message.author.bot) return;
     if (!message.content.startsWith(PREFIX)) return;
-    if (command === "servers"){message.channel.send(
-        `${guild.name} has a total of ${guild.memberCount} members`)
-    }
+    if (command === "servers"){message.channel.send(${guild.name} has a total of ${guild.memberCount} members`)}
     const args = message.content.split(" ");
     const searchString = args.slice(1).join(" ");
     const url = args[1] ? args[1].replace(/<(.+)>/g, "$1") : "";
