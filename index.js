@@ -10,7 +10,9 @@ const bot = new Client({
 const PREFIX = process.env.PREFIX;
 const youtube = new YouTube(process.env.YTAPI_KEY);
 const queue = new Map();
-
+bot.on("ready", () => {
+  console.log("The client is ready!")
+}
 bot.on("warn", console.warn);
 bot.on("error", console.error);
 bot.on("shardDisconnect", (event, id) => console.log(`[SHARD] Shard ${id} disconnected (${event.code}) ${event}, trying to reconnect...`));
@@ -75,6 +77,7 @@ __**Command list**__
             return handleVideo(video, message, voiceChannel);
         }
     }
+    if (command=== "ping"){
     if (command === "search" || command === "sc") {
         const voiceChannel = message.member.voice.channel;
         if (!voiceChannel) return message.channel.send("I'm sorry, but you need to be in a voice channel to play a music!");
