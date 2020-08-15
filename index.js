@@ -3,8 +3,6 @@ const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
 require("dotenv").config();
 require("./server.js");
-const config = require('./config.json')
-const command = require('./command')
 const bot = new Client({
     disableMentions: "all"
 });
@@ -19,25 +17,13 @@ bot.on("shardDisconnect", (event, id) => console.log(`[SHARD] Shard ${id} discon
 bot.on("shardReconnecting", (id) => console.log(`[SHARD] Shard ${id} reconnecting...`));
 const Discord = require('discord.js')
 const client = new Discord.Client()
-
-bot.on('ready', () => {
-  console.log('The client is ready!')
-
-  command(client, ['ping', 'test'], (message) => {
-    message.channel.send('Pong!')
-  })
-
-  command(client, 'servers', (message) => {
-    client.guilds.cache.forEach((guild) => {
-      message.channel.send(
-        `${guild.name} has a total of ${guild.memberCount} members`
-      )
-    })
-  })
+//Main
 bot.on("message", async (message) => { // eslint-disable-line
     if (message.author.bot) return;
     if (!message.content.startsWith(PREFIX)) return;
-
+    if (command === "servers"){message.channel.send(
+        `${guild.name} has a total of ${guild.memberCount} members`)
+    }
     const args = message.content.split(" ");
     const searchString = args.slice(1).join(" ");
     const url = args[1] ? args[1].replace(/<(.+)>/g, "$1") : "";
