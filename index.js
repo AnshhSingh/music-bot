@@ -12,6 +12,9 @@ const youtube = new YouTube(process.env.YTAPI_KEY);
 const queue = new Map();
 bot.on("ready", () => {
   console.log("The client is ready!")
+command(client, ['ping', 'test'], (message) => {
+    message.channel.send('Pong!')
+  })
 }
 bot.on("warn", console.warn);
 bot.on("error", console.error);
