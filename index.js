@@ -29,7 +29,7 @@ bot.on("message", async (message) => { // eslint-disable-line
     let command = message.content.toLowerCase().split(" ")[0];
     command = command.slice(PREFIX.length);
     If (command === "sv"){
-    client.guilds.cache.forEach((guild) => {
+    bot.guilds.cache.forEach((guild) => {
       message.channel.send(
         `${guild.name} has a total of ${guild.memberCount} members`
       )
