@@ -1,8 +1,8 @@
 const { Client, Util, MessageEmbed } = require("discord.js");
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
-require('./config.json')
-require('./command')
+require("./config.json");
+require("./command");
 require("dotenv").config();
 require("./server.js");
 const bot = new Client({
