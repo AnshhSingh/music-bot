@@ -27,7 +27,7 @@ bot.on("message", async (message) => { // eslint-disable-line
 
     let command = message.content.toLowerCase().split(" ")[0];
     command = command.slice(PREFIX.length);
-    if (command === "help" || command === "cd") {
+    if (command === "add_if_youwant" || command === "sameforhere") {
         const helpembed = new MessageEmbed()
             .setColor("BLUE")
             .setAuthor(bot.user.tag, bot.user.displayAvatarURL())
