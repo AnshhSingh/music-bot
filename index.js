@@ -27,6 +27,19 @@ bot.on("message", async (message) => { // eslint-disable-line
 
     let command = message.content.toLowerCase().split(" ")[0];
     command = command.slice(PREFIX.length);
+    if (command === "---add if you want---" || command === "cmd") {
+        const helpembed = new MessageEmbed()
+            .setColor("BLUE")
+            .setAuthor(bot.user.tag, bot.user.displayAvatarURL())
+            .setDescription(`
+__**Command list**__
+> \`play\` > **\`play [title/url]\`**
+> \`search\` > **\`search [title]\`**
+> \`skip\`, \`leave\`,  \`pause\`, \`resume\`
+> \`nowplaying\`, \`queue\`, \`volume\``)
+            .setFooter("Do not put space between p+<command>");
+        message.channel.send(helpembed);
+    }
     if (command === "play" || command === "p") {
         const voiceChannel = message.member.voice.channel;
         if (!voiceChannel) return message.channel.send("I'm sorry, but you need to be in a voice channel to play a music!");
