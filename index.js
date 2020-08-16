@@ -3,6 +3,7 @@ const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
 require("dotenv").config();
 require("./server.js");
+
 const bot = new Client({
     disableMentions: "all"
 });
@@ -10,16 +11,17 @@ const bot = new Client({
 const PREFIX = process.env.PREFIX;
 const youtube = new YouTube(process.env.YTAPI_KEY);
 const queue = new Map();
+
 bot.on("warn", console.warn);
 bot.on("error", console.error);
+bot.on("ready", () => console.log(`[READY] ${bot.user.tag} has been successfully booted up!`));
 bot.on("shardDisconnect", (event, id) => console.log(`[SHARD] Shard ${id} disconnected (${event.code}) ${event}, trying to reconnect...`));
 bot.on("shardReconnecting", (id) => console.log(`[SHARD] Shard ${id} reconnecting...`));
-const Discord = require('discord.js')
-const client = new Discord.Client()
-//Main
+
 bot.on("message", async (message) => { // eslint-disable-line
     if (message.author.bot) return;
     if (!message.content.startsWith(PREFIX)) return;
+
     const args = message.content.split(" ");
     const searchString = args.slice(1).join(" ");
     const url = args[1] ? args[1].replace(/<(.+)>/g, "$1") : "";
@@ -27,6 +29,7 @@ bot.on("message", async (message) => { // eslint-disable-line
 
     let command = message.content.toLowerCase().split(" ")[0];
     command = command.slice(PREFIX.length);
+
     if (command === "help" || command === "cmd") {
         const helpembed = new MessageEmbed()
             .setColor("BLUE")
@@ -74,7 +77,6 @@ __**Command list**__
             return handleVideo(video, message, voiceChannel);
         }
     }
-    if (command=== "ping"){
     if (command === "search" || command === "sc") {
         const voiceChannel = message.member.voice.channel;
         if (!voiceChannel) return message.channel.send("I'm sorry, but you need to be in a voice channel to play a music!");
