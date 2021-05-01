@@ -149,9 +149,9 @@ __**Command list**__
         if (!message.member.voice.channel) return message.channel.send("I'm sorry, but you need to be in a voice channel to set a volume!");
         if (!serverQueue) return message.channel.send("There is nothing playing");
         if (!args[1]) return message.channel.send(`The current volume is: **\`${serverQueue.volume}%\`**`);
-        if (isNaN(args[1]) || args[1] > 100) return message.channel.send("Volume only can be set in a range of **\`1\`** - **\`100\`**");
+        if (isNaN(args[1]) || args[1] > 200) return message.channel.send("Volume only can be set in a range of **\`1\`** - **\`200\`**");
         serverQueue.volume = args[1];
-        serverQueue.connection.dispatcher.setVolume(args[1] / 100);
+        serverQueue.connection.dispatcher.setVolume(args[1] / 200);
         return message.channel.send(`I set the volume to: **\`${args[1]}%\`**`);
 
     } else if (command === "nowplaying" || command === "np") {
@@ -254,4 +254,5 @@ function play(guild, song) {
         }
     });
 }
+
 bot.login(process.env.BOT_TOKEN);
